@@ -1,3 +1,4 @@
+import 'package:books_online/Features/Splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData()
+      theme: ThemeData.dark()
           .copyWith(scaffoldBackgroundColor: const Color(0xff100B20)),
-      home: const Scaffold(),
+      home: const SplashView(),
     );
   }
 }
