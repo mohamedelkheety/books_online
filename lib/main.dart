@@ -9,9 +9,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(),
+      theme: ThemeData()
+          .copyWith(scaffoldBackgroundColor: const Color(0xff100B20)),
+      home: const Scaffold(),
     );
   }
 }
