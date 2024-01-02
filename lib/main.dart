@@ -1,4 +1,4 @@
-import 'package:books_online/Features/Splash/views/splash_view.dart';
+import 'package:books_online/Features/Splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {

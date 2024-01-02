@@ -1,6 +1,8 @@
 import 'package:books_online/Features/home/views/homepage.dart';
 import 'package:flutter/material.dart';
 
+import 'widget/animated_text.dart';
+
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
@@ -16,7 +18,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     super.initState();
     //
     animationMethod();
-    navigatorToHomePage();
+    navigateToHomePage();
   }
 
   @override
@@ -36,21 +38,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
             'assets/images/logo.png',
             height: MediaQuery.of(context).size.height * 0.30,
           ),
-          AnimatedBuilder(
-              animation: slideingAnimation,
-              builder: (context, _) {
-                return SlideTransition(
-                  position: slideingAnimation,
-                  child: const Text(
-                    'Read Free Books',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 36,
-                      fontFamily: 'Pacifico',
-                    ),
-                  ),
-                );
-              })
+          AnimatedText(slideingAnimation: slideingAnimation)
         ],
       ),
     );
@@ -67,7 +55,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     animationController.forward();
   }
 
-  Future<void> navigatorToHomePage() {
+  Future<void> navigateToHomePage() {
     return Future.delayed(const Duration(seconds: 4), () {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) {
