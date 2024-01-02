@@ -1,3 +1,5 @@
+import 'package:books_online/Features/home/views/widget/newest_books_item.dart';
+import 'package:books_online/Features/home/views/widget/custom_text.dart';
 import 'package:books_online/Features/home/views/widget/item_list_view.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +17,8 @@ class HomePage extends StatelessWidget {
           children: [
             CustomAppBar(),
             ItemListView(),
+            CustomText(text: 'Newest Books'),
+            NewestBooksItem(),
           ],
         ),
       ),

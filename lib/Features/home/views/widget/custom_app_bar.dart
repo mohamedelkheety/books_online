@@ -7,15 +7,14 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size mediaQ = MediaQuery.of(context).size;
-    return Padding(
-      padding: EdgeInsets.only(
-          top: mediaQ.height * 0.05, bottom: mediaQ.height * 0.02),
-      child: const Text(
+    // Size mediaQ = MediaQuery.of(context).size;
+    return const Padding(
+      padding: EdgeInsets.only(top: 45, bottom: 10),
+      child: Text(
         'Books Online',
         style: TextStyle(
           fontSize: 26,
-          fontFamily: 'Pacifico',
+          fontFamily: 'GT Sectra Fine Regular',
         ),
         textAlign: TextAlign.center,
       ),
