@@ -1,6 +1,6 @@
 # books_online
 
-A new Flutter project.
+I am building this project while learning the Deep Dive into Clean Architecture in Flutter course.
 
 ## Getting Started
 
