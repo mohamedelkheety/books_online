@@ -8,15 +8,16 @@ class NewestBooksItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      width: double.infinity,
-      height: 150,
-      child: Row(
-        children: [
-          NewestBooksImage(),
-          SizedBox(width: 8),
-          DataItemNewest(),
-        ],
+    return const Padding(
+      padding: EdgeInsets.only(bottom: 12),
+      child: SizedBox(
+        height: 150,
+        child: Row(
+          children: [
+            NewestBooksImage(),
+            DataItemNewest(),
+          ],
+        ),
       ),
     );
   }

@@ -6,7 +6,7 @@ class NewestBooksImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
+      padding: const EdgeInsets.only(right: 8.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(19),
         child: Image.asset(
