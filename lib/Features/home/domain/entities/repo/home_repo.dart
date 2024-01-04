@@ -1,6 +1,8 @@
 import 'package:books_online/Features/home/domain/entities/book_entity.dart';
+import 'package:books_online/core/errors/error.dart';
+import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
-  Future<List<BookEntity>> fetchFutureBooks();
-  Future<List<BookEntity>> fetchNewsetBooks();
+  Future<Either<Fialure, List<BookEntity>>> fetchFutureBooks();
+  Future<Either<Fialure, List<BookEntity>>> fetchNewsetBooks();
 }
