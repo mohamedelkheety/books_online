@@ -3,6 +3,6 @@ import 'package:books_online/core/errors/error.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
-  Future<Either<Fialure, List<BookEntity>>> fetchFutureBooks();
+  Future<Either<Fialure, List<BookEntity>>> fetchFeatureBooks();
   Future<Either<Fialure, List<BookEntity>>> fetchNewsetBooks();
 }
