@@ -1,4 +1,4 @@
-import 'package:books_online/Features/home/views/widget/newest_books_item.dart';
+import 'package:books_online/Features/home/presentation/views/widget/newest_books_item.dart';
 import 'package:flutter/material.dart';
 
 class NewestBooksSliverList extends StatelessWidget {

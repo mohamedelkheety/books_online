@@ -1,4 +1,4 @@
-import 'package:books_online/Features/home/views/home_page.dart';
+import 'package:books_online/Features/home/presentation/views/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'widget/animated_text.dart';

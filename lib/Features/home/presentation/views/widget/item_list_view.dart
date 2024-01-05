@@ -1,4 +1,4 @@
-import 'package:books_online/Features/home/views/widget/item.dart';
+import 'package:books_online/Features/home/presentation/views/widget/item.dart';
 import 'package:flutter/material.dart';
 
 class ItemListView extends StatelessWidget {

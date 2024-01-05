@@ -1,4 +1,4 @@
-import 'package:books_online/Features/home/views/widget/newest_books_image.dart';
+import 'package:books_online/Features/home/presentation/views/widget/newest_books_image.dart';
 import 'package:flutter/material.dart';
 
 import 'data_item_newest.dart';
