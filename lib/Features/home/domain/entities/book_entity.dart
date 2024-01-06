@@ -1,5 +1,6 @@
 class BookEntity {
-  final String title, auther, image;
+  final String title;
+  final String? auther, image;
   final num rating;
 
   BookEntity({
@@ -12,8 +13,8 @@ class BookEntity {
   factory BookEntity.fromJson(json) {
     return BookEntity(
       title: json["items"]["volumeInfo"]["title"],
-      auther: json["items"]["volumeInfo"]["authors"][0],
-      image: json["items"]["volumeInfo"]["imageLinks"]["thumbnail"],
+      auther: json["items"]["volumeInfo"]["authors"][0] ?? "",
+      image: json["items"]["volumeInfo"]["imageLinks"]["thumbnail"] ?? '',
       rating: json["items"]["volumeInfo"]["ratingsCount"],
     );
   }
