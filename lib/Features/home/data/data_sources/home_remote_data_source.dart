@@ -1,6 +1,8 @@
 import 'package:books_online/Features/home/domain/entities/book_entity.dart';
+import 'package:books_online/core/constants.dart';
 
 import 'package:books_online/core/utils/api_service.dart';
+import 'package:hive/hive.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeatureBooks();
@@ -19,6 +21,9 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     for (var bookMap in data['itmes']) {
       books.add(BookEntity.fromJson(bookMap));
     }
+    var box = Hive.box(kFeaturedBox);
+    box.addAll(books);
+
     return books;
   }
 
