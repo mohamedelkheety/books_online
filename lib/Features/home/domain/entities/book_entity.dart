@@ -1,6 +1,15 @@
+import 'package:hive/hive.dart';
+part 'book_entity.g.dart';
+
+@HiveType(typeId: 0)
 class BookEntity {
+  @HiveField(0)
   final String title;
-  final String? auther, image;
+  @HiveField(1)
+  final String? auther;
+  @HiveField(2)
+  final String? image;
+  @HiveField(3)
   final num rating;
 
   BookEntity({
