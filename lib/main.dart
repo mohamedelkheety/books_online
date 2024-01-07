@@ -2,10 +2,11 @@ import 'package:books_online/Features/Splash/presentation/views/splash_view.dart
 import 'package:books_online/Features/home/domain/entities/book_entity.dart';
 import 'package:books_online/core/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   runApp(const MyApp());
+  Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox(kFeaturedBox);
 }
