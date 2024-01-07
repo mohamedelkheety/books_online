@@ -1,8 +1,13 @@
 import 'package:books_online/Features/Splash/presentation/views/splash_view.dart';
+import 'package:books_online/Features/home/domain/entities/book_entity.dart';
+import 'package:books_online/core/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+  Hive.registerAdapter(BookEntityAdapter());
+  await Hive.openBox(kFeaturedBox);
 }
 
 class MyApp extends StatelessWidget {
