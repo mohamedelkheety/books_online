@@ -17,12 +17,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeatureBooks() async {
     var data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=Flutter');
-    List<BookEntity> books = [];
-    for (var bookMap in data['itmes']) {
-      books.add(BookEntity.fromJson(bookMap));
-    }
-    var box = Hive.box(kFeaturedBox);
-    box.addAll(books);
+    List<BookEntity> books = implmentList(data);
+    saveDataInHive(books, kFeaturedBox);
 
     return books;
   }
@@ -31,6 +27,18 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchNewsetBooks() async {
     var data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=programming');
+    List<BookEntity> books = implmentList(data);
+    saveDataInHive(books, kNewestBox);
+    return books;
+  }
+
+//helper method
+  void saveDataInHive(List<BookEntity> books, String boxName) {
+    var box = Hive.box(boxName);
+    box.addAll(books);
+  }
+
+  List<BookEntity> implmentList(Map<String, dynamic> data) {
     List<BookEntity> books = [];
     for (var bookMap in data['itmes']) {
       books.add(BookEntity.fromJson(bookMap));
