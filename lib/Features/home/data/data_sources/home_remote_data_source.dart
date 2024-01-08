@@ -18,7 +18,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=Flutter');
     List<BookEntity> books = implmentList(data);
-    saveDataInHive(books, kFeaturedBox);
+    cashDataInHive(books, kFeaturedBox);
 
     return books;
   }
@@ -28,12 +28,12 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=programming');
     List<BookEntity> books = implmentList(data);
-    saveDataInHive(books, kNewestBox);
+    cashDataInHive(books, kNewestBox);
     return books;
   }
 
 //helper method
-  void saveDataInHive(List<BookEntity> books, String boxName) {
+  void cashDataInHive(List<BookEntity> books, String boxName) {
     var box = Hive.box(boxName);
     box.addAll(books);
   }
