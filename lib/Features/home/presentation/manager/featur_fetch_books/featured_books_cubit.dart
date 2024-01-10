@@ -1,12 +1,6 @@
-import 'dart:ffi';
-
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:books_online/Features/home/domain/data/use%20cases/fetch_feature_books_use_case.dart';
-import 'package:books_online/Features/home/domain/data/use%20cases/use_case.dart';
 import 'package:books_online/Features/home/domain/entities/book_entity.dart';
-import 'package:books_online/Features/home/domain/entities/repo/home_repo.dart';
-import 'package:books_online/core/errors/error.dart';
-import 'package:meta/meta.dart';
 
 part 'featured_books_state.dart';
 
