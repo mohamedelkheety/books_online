@@ -2,6 +2,7 @@ import 'package:books_online/Features/Splash/presentation/views/splash_view.dart
 import 'package:books_online/Features/home/domain/data/use%20cases/fetch_feature_books_use_case.dart';
 import 'package:books_online/Features/home/domain/data/use%20cases/fetch_newset_books_use_case.dart';
 import 'package:books_online/Features/home/domain/entities/book_entity.dart';
+import 'package:books_online/Features/home/domain/entities/repo/home_repo_impl.dart';
 import 'package:books_online/Features/home/presentation/manager/featur_fetch_books/featured_books_cubit.dart';
 import 'package:books_online/Features/home/presentation/manager/newst_books/newset_books_cubit.dart';
 import 'package:books_online/core/constants.dart';
@@ -27,11 +28,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<FeaturedBooksCubit>(
-            create: (BuildContext context) =>
-                FeaturedBooksCubit(FetchFeatureBooksUseCase(getIt.get())),
+            create: (BuildContext context) => FeaturedBooksCubit(
+                FetchFeatureBooksUseCase(getIt.get<HomeRepoImpl>())),
             child: BlocProvider<NewsetBooksCubit>(
-              create: (BuildContext context) =>
-                  NewsetBooksCubit(FetchNewsetBooksUseCase(getIt.get())),
+              create: (BuildContext context) => NewsetBooksCubit(
+                  FetchNewsetBooksUseCase(getIt.get<HomeRepoImpl>())),
             ))
       ],
       child: MaterialApp(
