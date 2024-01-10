@@ -7,6 +7,7 @@ import 'package:books_online/Features/home/presentation/manager/featur_fetch_boo
 import 'package:books_online/Features/home/presentation/manager/newst_books/newset_books_cubit.dart';
 import 'package:books_online/core/constants.dart';
 import 'package:books_online/core/utils/git_it.dart';
+import 'package:books_online/core/utils/simple_bloc_obsever.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -17,6 +18,7 @@ void main() async {
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewestBox);
   setupServiceLocator();
+  Bloc.observer = SimpleBlocObserver();
   runApp(const MyApp());
 }
 
