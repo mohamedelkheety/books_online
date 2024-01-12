@@ -5,9 +5,9 @@ import 'package:books_online/core/utils/api_service.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
-final getIt = GetIt.asNewInstance();
-HomeRepoImpl setupServiceLocator() {
-  return getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(
+final getIt = GetIt.instance;
+void setupServiceLocator() {
+  getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(
     homeLocalDataSource: HomeLocalDataSourceImpl(),
     homeRemoteDataSource: HomeRemoteDataSourceImpl(ApiService(Dio())),
   ));

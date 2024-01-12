@@ -15,7 +15,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   HomeRemoteDataSourceImpl(this.apiService);
   @override
   Future<List<BookEntity>> fetchFeatureBooks() async {
-    var data = await apiService.get(
+    Map<String, dynamic> data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=Flutter');
     List<BookEntity> books = implmentList(data);
     cashDataInHive(books, kFeaturedBox);
@@ -25,7 +25,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
   @override
   Future<List<BookEntity>> fetchNewsetBooks() async {
-    var data = await apiService.get(
+    Map<String, dynamic> data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=programming');
     List<BookEntity> books = implmentList(data);
     cashDataInHive(books, kNewestBox);
@@ -34,7 +34,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
 //helper method
   void cashDataInHive(List<BookEntity> books, String boxName) {
-    var box = Hive.box(boxName);
+    var box = Hive.box<BookEntity>(boxName);
     box.addAll(books);
   }
 

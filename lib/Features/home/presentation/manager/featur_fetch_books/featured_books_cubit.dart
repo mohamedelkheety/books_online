@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:books_online/Features/home/domain/data/use%20cases/fetch_feature_books_use_case.dart';
 import 'package:books_online/Features/home/domain/entities/book_entity.dart';
@@ -11,7 +13,10 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
     emit(FeaturedBooksLoading());
     var result = await featureBooksUseCase.call();
     result.fold(
-      (fialure) => emit(FeaturedBooksFialure(fialure.errorMassge)),
+      (fialure) {
+        emit(FeaturedBooksFialure(fialure.errorMassge));
+        log(fialure.errorMassge);
+      },
       (books) => emit(
         FeaturedBooksSuccess(books),
       ),

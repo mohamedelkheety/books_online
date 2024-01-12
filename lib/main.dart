@@ -31,10 +31,12 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<FeaturedBooksCubit>(
             create: (BuildContext context) => FeaturedBooksCubit(
-                FetchFeatureBooksUseCase(getIt.get<HomeRepoImpl>())),
+                  FetchFeatureBooksUseCase(getIt.get<HomeRepoImpl>()),
+                )..fetchFeatureBooks(),
             child: BlocProvider<NewsetBooksCubit>(
               create: (BuildContext context) => NewsetBooksCubit(
-                  FetchNewsetBooksUseCase(getIt.get<HomeRepoImpl>())),
+                FetchNewsetBooksUseCase(getIt.get<HomeRepoImpl>()),
+              ),
             ))
       ],
       child: MaterialApp(
